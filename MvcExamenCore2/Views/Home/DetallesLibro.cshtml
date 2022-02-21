@@ -1,0 +1,67 @@
+﻿@model MvcExamenCore2.Models.Libro
+
+@{
+    ViewData["Title"] = "DetallesLibro";
+}
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IdLibro)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IdLibro)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Titulo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Titulo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Autor)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Autor)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Editorial)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Editorial)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Portada)
+        </dt>
+        <dd class="col-sm-10">
+            <img src="~/Assets/Imagenes/@Model.Portada" style="width:200px;height:200px" />
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Resumen)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Resumen)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Precio)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Precio)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IdGenero)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IdGenero)
+        </dd>
+        <dd class="col-sm-10">
+            @if (Context.User.Identity.IsAuthenticated)
+            {
+                <a asp-controller="Home" asp-action="InsertarCarrito" asp-route-idLibro="@Model.IdLibro" class="btn btn-success">Carrito</a>
+            }
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Index" class="btn">Volver</a>
+</div>

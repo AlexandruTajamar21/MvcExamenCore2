@@ -1,0 +1,62 @@
+﻿@model IEnumerable<MvcExamenCore2.Models.VistaProductos>
+
+@{
+    ViewData["Title"] = "Pedidos";
+}
+
+<h1>Pedidos</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apellidos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Titulo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Precio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Portada)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FECHA)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PRECIOFINAL)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Apellidos)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Titulo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Precio)
+            </td>
+            <td>
+                <img src="~/Assets/Imagenes/@item.Portada" style="width:100px;height:150px"/>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FECHA)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PRECIOFINAL)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

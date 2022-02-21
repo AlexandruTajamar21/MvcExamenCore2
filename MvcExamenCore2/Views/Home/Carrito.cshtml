@@ -1,0 +1,65 @@
+﻿@model IEnumerable<MvcExamenCore2.Models.Libro>
+
+@{
+    ViewData["Title"] = "Carrito";
+}
+
+<h1>Carrito</h1>
+
+@if (Model != null)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Titulo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Autor)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Editorial)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Portada)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Precio)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Titulo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Autor)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Editorial)
+                    </td>
+                    <td>
+                        <img src="~/Assets/Imagenes/@item.Portada" style="width:100px;height:150px" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Precio)
+                    </td>
+                    <td>
+                        <a asp-controller="Home" asp-action="EliminarElemento" asp-route-idLibro="@item.IdLibro" class="btn btn-danger">Eliminar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a asp-controller="Home" asp-action="ComprarCarrito" class="btn btn-success">Comprar</a>
+}
+else
+{
+    <h3 style="color:red">No hay elementos en el carrito</h3>
+}
+
+
